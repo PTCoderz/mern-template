@@ -3,20 +3,25 @@
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
-	"type": "module",
+	"type": "commonjs",
 	"scripts": {
-		"start": "nodemon server.ts"
+		"start": "nodemon server.js",
+		"watch-server": "nodemon --watch 'src/**/*' -e ts,tsx --exec ts-node ./src/server.ts"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"@koa/router": "^12.0.0",
 		"koa": "^2.13.4",
 		"mongoose": "^6.5.4"
 	},
 	"devDependencies": {
+		"@types/koa": "^2.13.5",
+		"@types/koa__router": "^8.0.11",
 		"@types/node": "^18.7.14",
 		"nodemon": "^2.0.19",
+		"ts-node": "^10.9.1",
 		"typescript": "^4.8.2"
 	}
 }
