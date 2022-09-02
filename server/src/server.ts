@@ -1,17 +1,37 @@
 import Koa from 'koa';
-import Router from '@koa/router';
+import {ApolloServer} from "apollo-server-koa";
+import {ApolloServerPluginDrainHttpServer, ApolloServerPluginLandingPageLocalDefault} from 'apollo-server-core';
+import { schema } from './schema'
+import http from 'http';
 
-const app = new Koa();
-const router = new Router();
+const PORT = 4000;
 
-router.get('/', async (ctx: any) => {
-  ctx.body = 'Hello World';
-});
+const startApolloServer = async (schema: any) => {
+  const httpServer = http.createServer();
 
-app
-  .use(router.routes())
-  .use(router.allowedMethods());
+  const server = new ApolloServer({
+    schema,
+    csrfPrevention: true,
+    cache: 'bounded',
+    plugins: [
+      ApolloServerPluginDrainHttpServer({ httpServer }),
+      ApolloServerPluginLandingPageLocalDefault({ embed: true })
+    ]
+  });
 
-app.listen(3000);
+  await server.start();
+  
+  const app = new Koa();
 
-console.log("Server listening at http://localhost:3000");
+  server.applyMiddleware({ app });
+
+  httpServer.on('request', app.callback());
+
+  await new Promise<void>(resolve => httpServer.listen({ port: PORT }, resolve));
+
+  console.log(`Server ready at http://localhost:${PORT}${server.graphqlPath}`);
+
+  return {server, app};
+};
+
+startApolloServer(schema);
