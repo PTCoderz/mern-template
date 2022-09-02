@@ -1,9 +1,6 @@
-interface Book {
-  title: string,
-  author: string
-}
+import {Book} from './interfaces';
 
-const books = [
+const books: Book[] = [
   {
     title: 'The Awakening',
     author: 'Kate Chopin',
@@ -20,6 +17,7 @@ export const resolvers = {
       return books;
     }
   },
+
   Mutation: {
     createBook: (args: Book) => {
       const book = books.push({title: args.title, author: args.author});

@@ -16,5 +16,5 @@ export const typeDefs = gql `
 
   type Mutation {
     createBook(title: String!, author: String!): Book
-  };
+  }
 `;
