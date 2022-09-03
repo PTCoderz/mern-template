@@ -1,4 +1,6 @@
+import "dotenv/config";
 import Koa from 'koa';
+import db from './config/index';
 import {ApolloServer} from "apollo-server-koa";
 import {ApolloServerPluginDrainHttpServer, ApolloServerPluginLandingPageLocalDefault} from 'apollo-server-core';
 import { schema } from './schema'
@@ -27,11 +29,14 @@ const startApolloServer = async (schema: any) => {
 
   httpServer.on('request', app.callback());
 
+
+  db.once("open", async () => {
   await new Promise<void>(resolve => httpServer.listen({ port: PORT }, resolve));
 
   console.log(`Server ready at http://localhost:${PORT}${server.graphqlPath}`);
 
   return {server, app};
+  });
 };
 
 startApolloServer(schema);
