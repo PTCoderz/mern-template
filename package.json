@@ -16,5 +16,8 @@
 	"bugs": {
 		"url": "https://github.com/PTCoderz/mern-template/issues"
 	},
-	"homepage": "https://github.com/PTCoderz/mern-template#readme"
+	"homepage": "https://github.com/PTCoderz/mern-template#readme",
+	"devDependencies": {
+		"concurrently": "^7.3.0"
+	}
 }
