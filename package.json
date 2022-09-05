@@ -19,5 +19,8 @@
 	"homepage": "https://github.com/PTCoderz/mern-template#readme",
 	"devDependencies": {
 		"concurrently": "^7.3.0"
+	},
+	"dependencies": {
+		"if-env": "^1.0.4"
 	}
 }
