@@ -1,5 +1,6 @@
 import { User } from '../models';
 import { UserInterface } from '../interfaces';
+import bcrypt from 'bcryptjs';
 
 export const resolvers = {
 	Query: {
@@ -11,14 +12,14 @@ export const resolvers = {
 
 	Mutation: {
 		createUser: async (_: any, args: UserInterface) => {
-			let user;
-
 			try {
-				user = await User.create(args);
+				const hashedPassword = await bcrypt.hash(args.password, 12);
+				const user = await User.create({ ...args, password: hashedPassword });
+				await user.save();
+				return user;
 			} catch (err) {
 				throw Error('There was an error creating the user.');
 			}
-			return user;
 		},
 	},
 };
