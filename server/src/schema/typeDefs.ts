@@ -1,20 +1,23 @@
 import { gql } from 'apollo-server-koa';
 
-export const typeDefs = gql `
-  # This "Book" type defines the queryable fields for every book in our data source.
-  type Book {
-    title: String
-    author: String
-  }
+export const typeDefs = gql`
+	type User {
+		username: String!
+		fullName: String!
+		email: String!
+		password: String!
+	}
 
-  # The "Query" type is special: it lists all of the available queries that
-  # clients can execute, along with the return type for each. In this
-  # case, the "books" query returns an array of zero or more Books (defined above).
-  type Query {
-    books: [Book]
-  }
+	type Query {
+		findAllUsers: [User!]!
+	}
 
-  type Mutation {
-    createBook(title: String!, author: String!): Book
-  }
+	type Mutation {
+		createUser(
+			username: String!
+			fullName: String!
+			email: String!
+			password: String!
+		): User!
+	}
 `;

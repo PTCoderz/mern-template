@@ -1,27 +1,24 @@
-import {Book} from './interfaces';
-
-const books: Book[] = [
-  {
-    title: 'The Awakening',
-    author: 'Kate Chopin',
-  },
-  {
-    title: 'City of Glass',
-    author: 'Paul Auster',
-  },
-];
+import { User } from '../models';
+import { UserInterface } from '../interfaces';
 
 export const resolvers = {
-  Query: {
-    books: () => {
-      return books;
-    }
-  },
+	Query: {
+		findAllUsers: async () => {
+			const users = await User.find();
+			return users;
+		},
+	},
 
-  Mutation: {
-    createBook: (args: Book) => {
-      const book = books.push({title: args.title, author: args.author});
-      return book;
-    }
-  }
-}
+	Mutation: {
+		createUser: async (_: any, args: UserInterface) => {
+			let user;
+
+			try {
+				user = await User.create(args);
+			} catch (err) {
+				throw Error('There was an error creating the user.');
+			}
+			return user;
+		},
+	},
+};
