@@ -15,10 +15,5 @@
 		"quotes": ["error", "single"],
 		"semi": ["error", "always"]
 	},
-	"overrides": [
-		{
-			"files": ["*.ts", "*.tsx", "*.js", "*.jsx"]
-		}
-	],
 	"root": true
 }
