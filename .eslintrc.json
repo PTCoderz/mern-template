@@ -1,18 +1,10 @@
 {
 	"env": {
-		"es2021": true,
-		"node": true
+		"es2021": true
 	},
-	"extends": [
-		"eslint:recommended",
-		"plugin:react/recommended",
-		"plugin:@typescript-eslint/recommended"
-	],
+	"extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
 	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
-		"ecmaFeatures": {
-			"jsx": true
-		},
 		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
@@ -25,7 +17,7 @@
 	},
 	"overrides": [
 		{
-			"files": ["client/src", "server/src", "*.ts", "*.tsx", "*.js", "*.jsx"]
+			"files": ["*.ts", "*.tsx", "*.js", "*.jsx"]
 		}
 	],
 	"root": true
