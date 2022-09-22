@@ -2,11 +2,13 @@ import reactLogo from "./assets/react.svg";
 import "./index.css";
 
 import Navbar from "./assets/Navbar";
+import HomeMenu from "./assets/Home-menu";
 
 function App() {
   return (
     <div>
       <Navbar />
+      <HomeMenu />
       <div className="flex justify-center items-center flex-col h-screen bg-gradient-to-r from-blue-100 to-purple-200">
         <div className="flex h-15">
           <a href="https://vitejs.dev" target="_blank">
