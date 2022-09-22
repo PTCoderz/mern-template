@@ -1,7 +1,7 @@
 import reactLogo from "./assets/react.svg";
 import "./index.css";
 
-import Navbar from "./assets/navbar";
+import Navbar from "./assets/Navbar";
 
 function App() {
   return (
