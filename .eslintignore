@@ -1,0 +1,7 @@
+*.test.js
+*.test.ts
+client/.next
+client/public
+client/src/assets
+server/dir
+server/server.js
