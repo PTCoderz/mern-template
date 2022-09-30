@@ -21,7 +21,7 @@ const userSchema = new Schema<UserInterface>({
 		trim: true,
 		unique: true,
 		match: [
-			/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
+			/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/, // eslint-disable-line no-useless-escape
 			'Please provide a valid Email Adress',
 		],
 	},

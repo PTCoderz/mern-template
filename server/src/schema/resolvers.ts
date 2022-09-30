@@ -11,7 +11,7 @@ export const resolvers = {
 	},
 
 	Mutation: {
-		createUser: async (_: any, args: UserInterface) => {
+		createUser: async (_: never, args: UserInterface) => {
 			try {
 				const hashedPassword = await bcrypt.hash(args.password, 12);
 				const user = await User.create({ ...args, password: hashedPassword });

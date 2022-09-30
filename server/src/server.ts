@@ -8,10 +8,11 @@ import {
 } from 'apollo-server-core';
 import { schema } from './schema';
 import http from 'http';
+import { GraphQLSchema } from 'graphql';
 
 const PORT = 4000;
 
-const startApolloServer = async (schema: any) => {
+const startApolloServer = async (schema: GraphQLSchema) => {
 	const httpServer = http.createServer();
 
 	const server = new ApolloServer({
@@ -33,7 +34,7 @@ const startApolloServer = async (schema: any) => {
 	httpServer.on('request', app.callback());
 
 	db.once('open', async () => {
-		await new Promise<void>((resolve) =>
+		await new Promise<void>(resolve =>
 			httpServer.listen({ port: PORT }, resolve)
 		);
 
