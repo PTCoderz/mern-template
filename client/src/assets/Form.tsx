@@ -14,7 +14,7 @@
 */
 import { LockClosedIcon } from "@heroicons/react/20/solid";
 
-export default function Example() {
+export default function Form() {
   return (
     <>
       {/*
@@ -25,8 +25,8 @@ export default function Example() {
         <body class="h-full">
         ```
       */}
-      <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div className="w-full max-w-md space-y-8">
+      <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8 ">
+        <div className="w-full max-w-md space-y-8 p-10 rounded-2xl bg-white border-slate-300 border">
           <div>
             <img
               className="mx-auto h-12 w-auto"
@@ -59,7 +59,7 @@ export default function Example() {
                   type="email"
                   autoComplete="email"
                   required
-                  className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  className="relative block w-full appearance-none rounded rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   placeholder="Email address"
                 />
               </div>
@@ -73,7 +73,7 @@ export default function Example() {
                   type="password"
                   autoComplete="current-password"
                   required
-                  className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  className="relative block w-full appearance-none rounded mt-5 rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   placeholder="Password"
                 />
               </div>
